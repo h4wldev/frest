@@ -7,6 +7,9 @@
 # ENVIRONMENT (development, production)
 ENVIRONMENT = 'development'
 
+# DEFAULT URL
+DEFAULT_URL = 'http://0.0.0.0:5000'
+
 # LOGGER FORMATTING
 LOGGER_FORMAT = '[%(levelname)s][%(filename)s:%(lineno)s] %(message)s'
 
