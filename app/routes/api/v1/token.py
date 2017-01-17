@@ -15,5 +15,12 @@ class Token(Resource):
     @frest.API
     @token_auth.login_required
     def get(self):
-        print token_load(request.headers['Authorization'])
-        return None, status.HTTP_200_OK
+        _return = {
+            'header': {
+                'scheme': request.headers['Authorization'].split()[0],
+                'token': request.headers['Authorization'].split()[1]
+            },
+            'data': token_load(request.headers['Authorization'])
+        }
+
+        return _return, status.HTTP_200_OK
