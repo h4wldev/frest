@@ -6,8 +6,27 @@ Frest
 
 Frest is the frame of the restful api server created with [pallets/flask](https://github.com/pallets/flask).
 
+## GOOL
+Basic restful api server including login, sign up, sign out, modify account, writing, and etc..
+
 ## Getting Started
 Soon
+
+## FEATURE
+### 1.0.0
+__API__
+- `GET /api/v@/auth` Login using 'HTTP basic auth' and generate token
+- `GET /api/v@/token` Login using 'HTTP token auth'
+- `GET /api/v@/users` Get users with token and params: page(Default: 0), limit(Default: 10)
+- `POST /api/v@/users` Sign Up
+
+__FUNCTION__
+- Form validation `app/modules/form_validation`
+- Auto route loading `app/routes`
+- Decorating return values `app/modules/frest/api`
+
+## TODO
+- `app/modules/token` Remove expired token
 
 ## License
 Copyright (c) 2017 Hawl Kim
