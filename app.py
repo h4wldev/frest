@@ -1,4 +1,13 @@
 # -*- coding: utf-8 -*-
+"""
+    frest - flask restful api frame
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    This project is the frame of the restful api server created with flask.
+
+    :copyright: (C) 2017 h4wldev@gmail.com
+    :license: MIT, see LICENSE for more details.
+"""
 import os
 
 from app import app, db, routes, handler

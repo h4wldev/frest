@@ -1,13 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-    flask restful api frame
-    ~~~~~~~~~~~~~~~~~~~~~~~
-
-    This project is the frame of the restful api server created with flask.
-
-    :copyright: (C) 2017 h4wldev@gmail.com
-    :license: MIT, see LICENSE for more details.
-"""
 from flask import Flask
 from flask_restful import Api
 from flask_httpauth import HTTPBasicAuth, HTTPTokenAuth
