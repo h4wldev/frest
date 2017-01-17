@@ -38,7 +38,7 @@ def API(method=None):
             _return['status'] = 'success'
 
             if ret is not None:
-                _return['data'] = ret
+                _return.update(ret)
 
         return _return, code
 

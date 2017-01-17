@@ -11,4 +11,4 @@ END_POINT = '/'
 class Index(Resource):
     @frest.API
     def get(self):
-        return ['asd'], status.HTTP_200_OK
+        return None, status.HTTP_200_OK
