@@ -7,12 +7,12 @@ from werkzeug.security import generate_password_hash
 from app import db, token_auth
 from app.config import DEFAULT_URL
 from app.modules import frest
-from app.modules.token import token_is_auth, token_load
+from app.modules.token import token_is_auth
 from app.modules.form_validation import Validation
 from app.modules.frest.serialize import serialize_user
 from app.models.user_model import UserModel
 
-END_POINT = '/users'
+_URL = '/users'
 
 
 class Users(Resource):
@@ -56,9 +56,9 @@ class Users(Resource):
 
         validation = Validation()
 
-        validation.add_rule('이름', username, 'required|min_length=2')
-        validation.add_rule('패스워드', password, 'required|min_length=5')
-        validation.add_rule('이메일', email, 'required|is_email')
+        validation.add_rule('User Name', username, 'required|min_length=2')
+        validation.add_rule('Password', password, 'required|min_length=5')
+        validation.add_rule('Email', email, 'required|is_email')
 
         if validation.check():
             is_email = UserModel.query \
@@ -76,6 +76,6 @@ class Users(Resource):
 
                 return None, status.HTTP_201_CREATED
             else:
-                return '이미 존재하는 이메일입니다.', status.HTTP_400_BAD_REQUEST
+                return 'Email already exists.', status.HTTP_400_BAD_REQUEST
 
         return validation.error, status.HTTP_400_BAD_REQUEST

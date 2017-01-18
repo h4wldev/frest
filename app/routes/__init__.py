@@ -24,7 +24,7 @@ def load_api_module(path):
         module = importlib.import_module('app.routes' + _path + '.' + module[:-3])
 
         routes[module_name] = {
-            'route': '/api/v' + str(API_VERSION) + module.END_POINT,
+            'route': '/api/v' + str(API_VERSION) + module._URL,
             'class': getattr(module, module_name.title())
         }
 

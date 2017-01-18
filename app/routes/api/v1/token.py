@@ -8,7 +8,7 @@ from app.modules import frest
 from app.modules.token import token_load
 
 
-END_POINT = '/token'
+_URL = '/token'
 
 
 class Token(Resource):

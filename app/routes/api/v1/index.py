@@ -5,7 +5,7 @@ from flask_restful import Resource
 from app.modules import frest
 
 
-END_POINT = '/'
+_URL = '/'
 
 
 class Index(Resource):

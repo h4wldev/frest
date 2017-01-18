@@ -22,7 +22,7 @@ def API(method=None):
         if request.headers['Accept'] == API_ACCEPT_HEADER:
             ret, code = _return
         else:
-            ret, code = ('Request Accept를 다시 한 번 확인해주세요.', status.HTTP_406_NOT_ACCEPTABLE)
+            ret, code = ('Please check Request Accept again.', status.HTTP_406_NOT_ACCEPTABLE)
 
         return serialize(ret, code)
 

@@ -6,7 +6,7 @@ from app import basic_auth
 from app.modules import frest
 from app.modules.token import token_generate
 
-END_POINT = '/auth'
+_URL = '/auth'
 
 
 class Auth(Resource):
