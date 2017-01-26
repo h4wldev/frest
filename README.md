@@ -13,6 +13,13 @@ Basic restful api server including login, sign up, sign out, modify account, wri
 Just modify [`app/config`](https://github.com/h4wldev/Frest/blob/master/app/config.py) and use it.
 
 ## FEATURE
+### 1.0.1
+__FEATURE__
+- You can expire token with function `app/modules/token` token_expire_with_id, token_expire_with_token
+
+__ETC__
+- Edit some files code convention
+
 ### 1.0.0
 __API__
 - `GET /api/v@/auth` Login using 'HTTP basic auth' and generate token
@@ -26,7 +33,7 @@ __FUNCTION__
 - Decorating return values `app/modules/frest/api`
 
 ## TODO
-- `app/modules/token` Remove expired token
+- `app/routes/api/v@/users/user` User delete, update
 
 ## License
 Copyright (c) 2017 Hawl Kim
