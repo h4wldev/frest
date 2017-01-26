@@ -10,7 +10,7 @@ from app.models.user_token_model import UserModel, UserTokenModel, expire_with_t
 
 def token_generate(email=None, expires_in=TOKEN_EXPIRE_TIME):
     user = UserModel.query\
-        .filter(UserModel.email == email)\
+        .filter(UserModel.email == email) \
         .first()
 
     created_at = datetime.datetime.now()
@@ -39,18 +39,40 @@ def token_generate(email=None, expires_in=TOKEN_EXPIRE_TIME):
     return data
 
 
-def token_load(auth=None):
-    return Serializer(APP_SECRET_KEY).loads(auth.split()[1])
+def token_load(token=''):
+    return Serializer(APP_SECRET_KEY).loads(token)
 
 
-def token_is_auth(_auth=None, _id=0):
+def token_load_with_auth(auth=None):
+    return token_load(auth.split()[1])
+
+
+def token_is_auth(_auth=None, user_id=0):
     if _auth is not None:
-        data = token_load(_auth)
+        data = token_load_with_auth(_auth)
 
-        if data['permission'] == 'ADMIN' or data['user_id'] == _id:
+        if data['permission'] == 'ADMIN' or data['user_id'] == user_id:
             if data['expired_at'] > datetime.datetime.now().isoformat():
                 return True
 
     return False
 
 
+def token_expire_with_token(token=''):
+    user_token = UserTokenModel.query\
+        .filter(UserTokenModel.token == token) \
+        .first()
+
+    user_token.expired_at = datetime.datetime.now()
+    db.session.commit()
+
+
+def token_expire_with_id(user_id=0):
+    user_tokens = UserTokenModel.query\
+        .filter(UserTokenModel.user_id == user_id)
+
+    for user_token in user_tokens:
+        if user_token.expired_at > datetime.datetime.now():
+            user_token.expired_at = datetime.datetime.now()
+
+    db.session.commit()
