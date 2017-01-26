@@ -14,6 +14,10 @@ Just modify [`app/config`](https://github.com/h4wldev/Frest/blob/master/app/conf
 
 ## FEATURE
 ### 1.0.1
+__API__
+- `GET /api/v@/users/<prefix(me or user_id)>` Return user information
+- `DELETE /api/v@/users/<prefix(me or user_id)>` Delete user
+
 __FEATURE__
 - You can expire token with function `app/modules/token` token_expire_with_id, token_expire_with_token
 
@@ -34,7 +38,7 @@ __FUNCTION__
 - Decorating return values `app/modules/frest/api`
 
 ## TODO
-- `app/routes/api/v@/users/user` User delete, update
+- `app/routes/api/v@/users/user` User information update
 
 ## License
 Copyright (c) 2017 Hawl Kim

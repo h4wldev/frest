@@ -76,3 +76,13 @@ def token_expire_with_id(user_id=0):
             user_token.expired_at = datetime.datetime.now()
 
     db.session.commit()
+
+
+def token_delete_all(user_id=0):
+    user_tokens = UserTokenModel.query \
+        .filter(UserTokenModel.user_id == user_id)
+
+    for user_token in user_tokens:
+        db.session.delete(user_token)
+
+    db.session.commit()
