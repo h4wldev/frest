@@ -6,11 +6,11 @@ Frest
 
 Frest is the frame of the restful api server created with [pallets/flask](https://github.com/pallets/flask).
 
-## GOOL
+## GOAL
 Basic restful api server including login, sign up, sign out, modify account, writing, and etc..
 
 ## Getting Started
-Soon
+Just modify [`app/config`](https://github.com/h4wldev/Frest/blob/master/app/config.py) and use it.
 
 ## FEATURE
 ### 1.0.0
