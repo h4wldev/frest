@@ -19,21 +19,3 @@ class UserTokenModel(db.Model):
         self.token = token
         self.created_at = created_at
         self.expired_at = expired_at
-
-
-def expire_with_token(token):
-    token = UserTokenModel.query\
-        .filter(UserTokenModel.token == token) \
-        .first()
-
-    token.expired_at = datetime.datetime.now()
-
-    db.session.commit()
-
-
-def delete_token_with_date(start=0, end=datetime.datetime.now()):
-    UserTokenModel.query\
-        .filter(start <= UserTokenModel.expired_at < end) \
-        .delete()
-
-    db.session.commit()

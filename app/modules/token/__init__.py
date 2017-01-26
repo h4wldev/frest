@@ -5,7 +5,7 @@ from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 
 from app import db
 from app.config import APP_SECRET_KEY, TOKEN_SCHEME, TOKEN_EXPIRE_TIME
-from app.models.user_token_model import UserModel, UserTokenModel, expire_with_token
+from app.models.user_token_model import UserModel, UserTokenModel
 
 
 def token_generate(email=None, expires_in=TOKEN_EXPIRE_TIME):
