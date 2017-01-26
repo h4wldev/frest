@@ -38,7 +38,10 @@ def API(method=None):
             _return['status'] = 'success'
 
             if ret is not None:
-                _return.update(ret)
+                if isinstance(ret, dict):
+                    _return.update(ret)
+                else:
+                    _return['data'] = ret
 
         return _return, code
 
