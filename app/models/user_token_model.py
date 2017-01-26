@@ -23,7 +23,7 @@ class UserTokenModel(db.Model):
 
 def expire_with_token(token):
     token = UserTokenModel.query\
-        .filter(UserTokenModel.token == token)\
+        .filter(UserTokenModel.token == token) \
         .first()
 
     token.expired_at = datetime.datetime.now()
@@ -33,7 +33,7 @@ def expire_with_token(token):
 
 def delete_token_with_date(start=0, end=datetime.datetime.now()):
     UserTokenModel.query\
-        .filter(start <= UserTokenModel.expired_at < end)\
+        .filter(start <= UserTokenModel.expired_at < end) \
         .delete()
 
     db.session.commit()
