@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import datetime
 
+
 def serialize_user(user):
     return {
         'id': user.id,

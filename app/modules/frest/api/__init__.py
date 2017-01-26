@@ -22,7 +22,7 @@ def API(method=None):
         if request.headers['Accept'] == API_ACCEPT_HEADER:
             ret, code = _return
         else:
-            ret, code = ('Please check Request Accept again.', status.HTTP_406_NOT_ACCEPTABLE)
+            ret, code = ("Please check request accept again.", status.HTTP_406_NOT_ACCEPTABLE)
 
         return serialize(ret, code)
 
@@ -33,7 +33,10 @@ def API(method=None):
             _return['status'] = 'fail'
 
             if ret is not None:
-                _return['message'] = ret
+                if isinstance(ret, dict):
+                    _return.update(ret)
+                else:
+                    _return['message'] = ret
         else:
             _return['status'] = 'success'
 

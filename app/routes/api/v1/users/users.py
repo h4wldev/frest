@@ -6,11 +6,11 @@ from werkzeug.security import generate_password_hash
 
 from app import db, token_auth
 from app.config import DEFAULT_URL
-from app.modules import frest
-from app.modules.token import token_is_auth
-from app.modules.form_validation import Validation
-from app.modules.frest.serialize import serialize_user
 from app.models.user_model import UserModel
+from app.modules import frest
+from app.modules.frest.validate import users
+from app.modules.frest.serialize import serialize_user
+from app.modules.token import token_is_auth
 
 _URL = '/users'
 
@@ -46,36 +46,46 @@ class Users(Resource):
 
             return _return, status.HTTP_200_OK
 
-        return 'UNAUTHORIZED', status.HTTP_401_UNAUTHORIZED
+        return "You don't have permission.", status.HTTP_401_UNAUTHORIZED
 
     @frest.API
     def post(self):
+        email = request.form.get('email', None)
         username = request.form.get('username', None)
         password = request.form.get('password', None)
-        email = request.form.get('email', None)
 
-        validation = Validation()
+        form = users.RegistrationForm(request.form)
 
-        validation.add_rule('User Name', username, 'required|min_length=2')
-        validation.add_rule('Password', password, 'required|min_length=5')
-        validation.add_rule('Email', email, 'required|is_email')
-
-        if validation.check():
-            is_email = UserModel.query \
+        if form.validate():
+            exist_email = UserModel.query \
                 .filter(UserModel.email == email) \
                 .count()
 
-            if not is_email:
-                user = UserModel(
-                    username=username,
-                    password=generate_password_hash(password),
-                    email=email
-                )
-                db.session.add(user)
-                db.session.commit()
+            exist_username = UserModel.query \
+                .filter(UserModel.username == username) \
+                .count()
 
-                return None, status.HTTP_201_CREATED
+            if not exist_email:
+                if not exist_username:
+                    user = UserModel(
+                        username=username,
+                        password=generate_password_hash(password),
+                        email=email
+                    )
+                    db.session.add(user)
+                    db.session.commit()
+
+                    return None, status.HTTP_201_CREATED
+                else:
+                    return "Username already exists.", status.HTTP_400_BAD_REQUEST
             else:
-                return 'Email already exists.', status.HTTP_400_BAD_REQUEST
+                return "Email already exists.", status.HTTP_400_BAD_REQUEST
 
-        return validation.error, status.HTTP_400_BAD_REQUEST
+        for field, errors in form.errors.items():
+            for error in errors:
+                _return = {
+                    'message': error,
+                    'field': getattr(form, field).label.text
+                }
+
+                return _return, status.HTTP_400_BAD_REQUEST

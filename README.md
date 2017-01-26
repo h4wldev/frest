@@ -19,6 +19,7 @@ __FEATURE__
 
 __ETC__
 - Edit some files code convention
+- Delete Form validation. Instead, use wtform
 
 ### 1.0.0
 __API__
@@ -28,7 +29,7 @@ __API__
 - `POST /api/v@/users` Sign Up
 
 __FUNCTION__
-- Form validation `app/modules/form_validation`
+- ~~Form validation `app/modules/form_validation`~~ __Now Removed__
 - Auto route loading `app/routes`
 - Decorating return values `app/modules/frest/api`
 
