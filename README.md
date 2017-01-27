@@ -16,6 +16,7 @@ Just modify [`app/config`](https://github.com/h4wldev/Frest/blob/master/app/conf
 ### 1.0.1
 __API__
 - `GET /api/v@/users/<prefix(me or user_id)>` Return user information
+- `POST /api/v@/users/<prefix(me or user_id)>` Modify user information
 - `DELETE /api/v@/users/<prefix(me or user_id)>` Delete user
 
 __FEATURE__
@@ -38,7 +39,7 @@ __FUNCTION__
 - Decorating return values `app/modules/frest/api`
 
 ## TODO
-- `app/routes/api/v@/users/user` User information update
+- Token <-> database connect
 
 ## License
 Copyright (c) 2017 Hawl Kim
