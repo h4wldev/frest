@@ -9,6 +9,7 @@ from sqlalchemy.exc import IntegrityError
 from app import db, token_auth
 from app.modules import frest
 from app.modules.token import token_is_auth, token_load_with_auth, token_delete_all
+from app.modules.frest.validate import user as userValidate
 from app.modules.frest.serialize import serialize_user
 from app.models.user_model import UserModel
 
@@ -53,24 +54,36 @@ class User(Resource):
                 .filter(UserModel.id == user_id)
 
             if token_is_auth(request.headers['Authorization'], user_id):
-                if user_query.count():
-                    user = user_query.first()
+                form = userValidate.modificationForm(request.form)
 
-                    try:
-                        for key, value in request.form.items():
-                            setattr(user, key, value)
+                if form.validate():
+                    if user_query.count():
+                        user = user_query.first()
 
-                        user.updated_at = datetime.datetime.now()
+                        try:
+                            for key, value in request.form.items():
+                                setattr(user, key, value)
 
-                        db.session.commit()
-                    except IntegrityError as e:
-                        error = str(e).splitlines()[1].replace('DETAIL:  ', '')
+                            user.updated_at = datetime.datetime.now()
 
-                        return error, status.HTTP_400_BAD_REQUEST
+                            db.session.commit()
+                        except IntegrityError as e:
+                            error = str(e).splitlines()[1].replace('DETAIL:  ', '')
 
-                    return None, status.HTTP_200_OK
-                else:
-                    return "The user does not exist.", status.HTTP_404_NOT_FOUND
+                            return error, status.HTTP_400_BAD_REQUEST
+
+                        return None, status.HTTP_200_OK
+                    else:
+                        return "The user does not exist.", status.HTTP_404_NOT_FOUND
+
+                for field, errors in form.errors.items():
+                    for error in errors:
+                        _return = {
+                            'message': error,
+                            'field': getattr(form, field).label.text
+                        }
+
+                        return _return, status.HTTP_400_BAD_REQUEST
             else:
                 return "You don't have permission.", status.HTTP_401_UNAUTHORIZED
 
