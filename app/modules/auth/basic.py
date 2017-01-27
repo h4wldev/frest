@@ -19,4 +19,4 @@ def verify_password(email, password):
 
 @basic_auth.error_handler
 def error_handler():
-    return jsonify({'code': 401, 'status': 'fail', 'message': '존재하지 않는 유저이거나 패스워드가 맞지 않습니다.'})
+    return jsonify({'code': 401, 'status': 'fail', 'message': 'User does not exist or the password does not match.'})

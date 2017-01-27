@@ -23,4 +23,4 @@ def verify_token(token):
 
 @token_auth.error_handler
 def error_handler():
-    return jsonify({'code': 401, 'status': 'fail', 'message': '존재하지 않거나 만료된 토큰입니다.'})
+    return jsonify({'code': 401, 'status': 'fail', 'message': 'Token that does not exist or has expired.'})
