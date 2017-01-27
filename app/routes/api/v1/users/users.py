@@ -9,7 +9,7 @@ from app import db, token_auth
 from app.config import DEFAULT_URL
 from app.models.user_model import UserModel
 from app.modules import frest
-from app.modules.frest.validate import users
+from app.modules.frest.validate import users as usersValidate
 from app.modules.frest.serialize import serialize_user
 from app.modules.token import token_is_auth
 
@@ -55,7 +55,7 @@ class Users(Resource):
         username = request.form.get('username', None)
         password = request.form.get('password', None)
 
-        form = users.RegistrationForm(request.form)
+        form = usersValidate.RegistrationForm(request.form)
 
         if form.validate():
             exist_email = UserModel.query \
