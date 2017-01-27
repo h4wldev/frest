@@ -25,6 +25,7 @@ __FEATURE__
 __ETC__
 - Edit some files code convention
 - Delete Form validation. Instead, use wtform
+- Get user's permission from database when token load
 
 ### 1.0.0
 __API__
@@ -39,7 +40,6 @@ __FUNCTION__
 - Decorating return values `app/modules/frest/api`
 
 ## TODO
-- Token <-> database connect
 
 ## License
 Copyright (c) 2017 Hawl Kim
