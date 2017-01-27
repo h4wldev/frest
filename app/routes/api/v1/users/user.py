@@ -11,7 +11,7 @@ from app.modules import frest
 from app.modules.token import token_is_auth, token_load_with_auth, token_delete_all
 from app.modules.frest.validate import user as userValidate
 from app.modules.frest.serialize import serialize_user
-from app.models.user_model import UserModel
+from app.models.user_model import UserModel, get_user
 
 _URL = '/users/<prefix>'
 
@@ -26,16 +26,10 @@ class User(Resource):
             else:
                 user_id = int(prefix)
 
-            user_query = UserModel.query\
-                .filter(UserModel.id == user_id)
-
             if token_is_auth(request.headers['Authorization'], user_id):
-                if user_query.count():
-                    user = user_query.first()
+                user = get_user(user_id)
 
-                    return serialize_user(user), status.HTTP_200_OK
-                else:
-                    return "The user does not exist.", status.HTTP_404_NOT_FOUND
+                return serialize_user(user), status.HTTP_200_OK
             else:
                 return "You don't have permission.", status.HTTP_401_UNAUTHORIZED
         except ValueError:
