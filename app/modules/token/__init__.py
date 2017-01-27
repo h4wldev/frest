@@ -5,6 +5,7 @@ from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 
 from app import db
 from app.config import APP_SECRET_KEY, TOKEN_SCHEME, TOKEN_EXPIRE_TIME
+from app.models.user_model import get_user
 from app.models.user_token_model import UserModel, UserTokenModel
 
 
@@ -18,7 +19,6 @@ def token_generate(email=None, expires_in=TOKEN_EXPIRE_TIME):
 
     data = {
         'user_id': user.id,
-        'permission': user.permission,
         'created_at': created_at.isoformat(),
         'expired_at': expired_at.isoformat(),
         'expires_in': expires_in,
@@ -40,7 +40,10 @@ def token_generate(email=None, expires_in=TOKEN_EXPIRE_TIME):
 
 
 def token_load(token=''):
-    return Serializer(APP_SECRET_KEY).loads(token)
+    data = Serializer(APP_SECRET_KEY).loads(token)
+    data['permission'] = get_user(data['user_id']).permission
+    
+    return data
 
 
 def token_load_with_auth(auth=None):
