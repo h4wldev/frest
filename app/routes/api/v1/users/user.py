@@ -54,6 +54,11 @@ class User(Resource):
                 .filter(UserModel.id == user_id)
 
             if token_is_auth(request.headers['Authorization'], user_id):
+                user_permission = token_load_with_auth(request.headers['Authorization'])['permission']
+
+                if user_permission != 'ADMIN' and request.form.get('permission') is not None:
+                    return "You don't have permission.", status.HTTP_401_UNAUTHORIZED
+
                 form = userValidate.modificationForm(request.form)
 
                 if form.validate():
