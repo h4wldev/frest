@@ -2,6 +2,7 @@
 from flask import request
 from flask_api import status
 from flask_restful import Resource
+from sqlalchemy.exc import IntegrityError
 from werkzeug.security import generate_password_hash
 
 from app import db, token_auth
@@ -67,13 +68,18 @@ class Users(Resource):
 
             if not exist_email:
                 if not exist_username:
-                    user = UserModel(
-                        username=username,
-                        password=generate_password_hash(password),
-                        email=email
-                    )
-                    db.session.add(user)
-                    db.session.commit()
+                    try:
+                        user = UserModel(
+                            username=username,
+                            password=generate_password_hash(password),
+                            email=email
+                        )
+                        db.session.add(user)
+                        db.session.commit()
+                    except IntegrityError as e:
+                        error = str(e).splitlines()[1].replace('DETAIL:  ', '')
+
+                        return error, status.HTTP_400_BAD_REQUEST
 
                     return None, status.HTTP_201_CREATED
                 else:
