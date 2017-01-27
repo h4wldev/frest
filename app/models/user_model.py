@@ -21,3 +21,10 @@ class UserModel(db.Model):
         self.password = password
         self.permission = permission
         self.updated_at = updated_at
+
+
+def get_user(user_id=0):
+    user_query = UserModel.query \
+        .filter(UserModel.id == user_id).first()
+
+    return user_query
