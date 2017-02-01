@@ -1,4 +1,5 @@
 # # -*- coding: utf-8 -*-
+import re
 import datetime
 
 from flask import request
@@ -68,8 +69,18 @@ class User(Resource):
                             db.session.commit()
                         except IntegrityError as e:
                             error = str(e).splitlines()[1].replace('DETAIL:  ', '')
+                            field, value = map(lambda x: x[1:-1], re.findall(r'\([^)]+\)', error))
 
-                            return error, status.HTTP_400_BAD_REQUEST
+                            _return = {
+                                'message': "'" + value + "' is already exists."
+                            }
+
+                            try:
+                                _return['field'] = getattr(form, field).label.text
+
+                                return _return, status.HTTP_400_BAD_REQUEST
+                            except AttributeError:
+                                return _return, status.HTTP_400_BAD_REQUEST
 
                         return None, status.HTTP_200_OK
                     else:

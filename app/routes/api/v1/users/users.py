@@ -1,4 +1,6 @@
 # # -*- coding: utf-8 -*-
+import re
+
 from flask import request
 from flask_api import status
 from flask_restful import Resource
@@ -58,34 +60,30 @@ class Users(Resource):
         form = usersValidate.RegistrationForm(request.form)
 
         if form.validate():
-            exist_email = UserModel.query \
-                .filter(UserModel.email == email) \
-                .count()
+            try:
+                user = UserModel(
+                    username=username,
+                    password=generate_password_hash(password),
+                    email=email
+                )
+                db.session.add(user)
+                db.session.commit()
+            except IntegrityError as e:
+                error = str(e).splitlines()[1].replace('DETAIL:  ', '')
+                field, value = map(lambda x: x[1:-1], re.findall(r'\([^)]+\)', error))
 
-            exist_username = UserModel.query \
-                .filter(UserModel.username == username) \
-                .count()
+                _return = {
+                    'message': "'" + value + "' is already exists."
+                }
 
-            if not exist_email:
-                if not exist_username:
-                    try:
-                        user = UserModel(
-                            username=username,
-                            password=generate_password_hash(password),
-                            email=email
-                        )
-                        db.session.add(user)
-                        db.session.commit()
-                    except IntegrityError as e:
-                        error = str(e).splitlines()[1].replace('DETAIL:  ', '')
+                try:
+                    _return['field'] = getattr(form, field).label.text
 
-                        return error, status.HTTP_400_BAD_REQUEST
+                    return _return, status.HTTP_400_BAD_REQUEST
+                except AttributeError:
+                    return _return, status.HTTP_400_BAD_REQUEST
 
-                    return None, status.HTTP_201_CREATED
-                else:
-                    return "Username already exists.", status.HTTP_400_BAD_REQUEST
-            else:
-                return "Email already exists.", status.HTTP_400_BAD_REQUEST
+            return None, status.HTTP_201_CREATED
 
         for field, errors in form.errors.items():
             for error in errors:
