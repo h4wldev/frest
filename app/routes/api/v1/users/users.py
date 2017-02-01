@@ -74,7 +74,10 @@ class Users(Resource):
 
                 _return = {
                     'message': "'" + value + "' is already exists.",
-                    'field': getattr(form, field).label.text
+                    'field': {
+                        'label': getattr(form, field).label.text,
+                        'name': field
+                    }
                 }
 
                 return _return, status.HTTP_400_BAD_REQUEST

@@ -63,14 +63,14 @@ class User(Resource):
 
                         try:
                             for key, value in request.form.items():
-                                if key == 'password':
-                                    value = generate_password_hash(value)
-                                    token_expire_all(user.id)
+                                if value is not None and value != '':
+                                    if key == 'password':
+                                        value = generate_password_hash(value)
+                                        token_expire_all(user.id)
 
-                                setattr(user, key, value)
+                                    setattr(user, key, value)
 
                             user.updated_at = datetime.datetime.now()
-
                             db.session.commit()
                         except IntegrityError as e:
                             error = str(e).splitlines()[1].replace('DETAIL:  ', '')
@@ -78,7 +78,10 @@ class User(Resource):
 
                             _return = {
                                 'message': "'" + value + "' is already exists.",
-                                'field': getattr(form, field).label.text
+                                'field': {
+                                    'label': getattr(form, field).label.text,
+                                    'name': field
+                                }
                             }
 
                             return _return, status.HTTP_400_BAD_REQUEST
