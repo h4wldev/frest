@@ -39,7 +39,7 @@ class User(Resource):
 
     @frest.API
     @token_auth.login_required
-    def post(self, prefix):
+    def put(self, prefix):
         try:
             if prefix == 'me':
                 user_id = token_load_with_auth(request.headers['Authorization'])['user_id']
