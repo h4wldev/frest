@@ -6,10 +6,11 @@ from flask import request
 from flask_api import status
 from flask_restful import Resource
 from sqlalchemy.exc import IntegrityError
+from werkzeug.security import generate_password_hash
 
 from app import db, token_auth
 from app.modules import frest
-from app.modules.token import token_is_auth, token_load_with_auth, token_delete_all
+from app.modules.token import token_is_auth, token_load_with_auth, token_expire_all, token_delete_all
 from app.modules.frest.validate import user as userValidate
 from app.modules.frest.serialize import serialize_user
 from app.models.user_model import UserModel, get_user
@@ -62,6 +63,10 @@ class User(Resource):
 
                         try:
                             for key, value in request.form.items():
+                                if key == 'password':
+                                    value = generate_password_hash(value)
+                                    token_expire_all(user.id)
+
                                 setattr(user, key, value)
 
                             user.updated_at = datetime.datetime.now()
@@ -72,15 +77,11 @@ class User(Resource):
                             field, value = map(lambda x: x[1:-1], re.findall(r'\([^)]+\)', error))
 
                             _return = {
-                                'message': "'" + value + "' is already exists."
+                                'message': "'" + value + "' is already exists.",
+                                'field': getattr(form, field).label.text
                             }
 
-                            try:
-                                _return['field'] = getattr(form, field).label.text
-
-                                return _return, status.HTTP_400_BAD_REQUEST
-                            except AttributeError:
-                                return _return, status.HTTP_400_BAD_REQUEST
+                            return _return, status.HTTP_400_BAD_REQUEST
 
                         return None, status.HTTP_200_OK
                     else:
