@@ -73,15 +73,11 @@ class Users(Resource):
                 field, value = map(lambda x: x[1:-1], re.findall(r'\([^)]+\)', error))
 
                 _return = {
-                    'message': "'" + value + "' is already exists."
+                    'message': "'" + value + "' is already exists.",
+                    'field': getattr(form, field).label.text
                 }
 
-                try:
-                    _return['field'] = getattr(form, field).label.text
-
-                    return _return, status.HTTP_400_BAD_REQUEST
-                except AttributeError:
-                    return _return, status.HTTP_400_BAD_REQUEST
+                return _return, status.HTTP_400_BAD_REQUEST
 
             return None, status.HTTP_201_CREATED
 
