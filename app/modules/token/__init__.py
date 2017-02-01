@@ -70,7 +70,7 @@ def token_expire_with_token(token=''):
     db.session.commit()
 
 
-def token_expire_with_id(user_id=0):
+def token_expire_all(user_id=0):
     user_tokens = UserTokenModel.query\
         .filter(UserTokenModel.user_id == user_id)
 
