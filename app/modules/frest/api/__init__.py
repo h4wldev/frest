@@ -20,9 +20,12 @@ def API(method=None):
             return _return
 
         if request.url.find('v' + str(API_VERSION)) > 0:
-            if request.headers['Accept'] == API_ACCEPT_HEADER:
-                ret, code = _return
-            else:
+            try:
+                if request.headers['Accept'] == API_ACCEPT_HEADER:
+                    ret, code = _return
+                else:
+                    raise KeyError
+            except KeyError:
                 ret, code = ("Please check request accept again.", status.HTTP_406_NOT_ACCEPTABLE)
         else:
             ret, code = ("API has been updated. The latest version is v" + str(API_VERSION), status.HTTP_301_MOVED_PERMANENTLY)
