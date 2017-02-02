@@ -17,6 +17,7 @@ Just modify [`app/config`](https://github.com/h4wldev/Frest/blob/master/app/conf
 __API__
 - `POST /api/v@/logout` Sign out
 - `GET /api/v@/` Return environment, versions
+- `GET /api/v@/token?type=extension&token=<token>` Token expire time extension 
 
 ### 1.0.1
 __API__
@@ -35,7 +36,7 @@ __ETC__
 ### 1.0.0
 __API__
 - `GET /api/v@/auth` Login using 'HTTP basic auth' and generate token
-- `GET /api/v@/token` Login using 'HTTP token auth'
+- ~~`GET /api/v@/token` Login using 'HTTP token auth'~~
 - `GET /api/v@/users` Get users with token and params: page(Default: 0), limit(Default: 10)
 - `POST /api/v@/users` Sign Up
 
