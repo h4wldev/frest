@@ -5,7 +5,7 @@ from flask import request
 from flask_api import status
 from flask.wrappers import Response
 
-from app.config import API_ACCEPT_HEADER
+from app.config import API_ACCEPT_HEADER, API_VERSION
 
 
 def API(method=None):
@@ -19,10 +19,13 @@ def API(method=None):
         if isinstance(_return, Response):
             return _return
 
-        if request.headers['Accept'] == API_ACCEPT_HEADER:
-            ret, code = _return
+        if request.url.find('v' + str(API_VERSION)) > 0:
+            if request.headers['Accept'] == API_ACCEPT_HEADER:
+                ret, code = _return
+            else:
+                ret, code = ("Please check request accept again.", status.HTTP_406_NOT_ACCEPTABLE)
         else:
-            ret, code = ("Please check request accept again.", status.HTTP_406_NOT_ACCEPTABLE)
+            ret, code = ("API has been updated. The latest version is v" + str(API_VERSION), status.HTTP_301_MOVED_PERMANENTLY)
 
         return serialize(ret, code)
 
