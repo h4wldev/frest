@@ -10,10 +10,10 @@ from werkzeug.security import generate_password_hash
 from app import db, token_auth
 from app.config import DEFAULT_URL
 from app.models.user_model import UserModel
+from app.models.user_token_model import token_is_auth
 from app.modules import frest
 from app.modules.frest.validate import users as usersValidate
 from app.modules.frest.serialize import serialize_user
-from app.modules.token import token_is_auth
 
 _URL = '/users'
 

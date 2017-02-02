@@ -3,8 +3,8 @@ from flask_api import status
 from flask_restful import Resource
 
 from app import basic_auth
+from app.models.user_token_model import token_generate
 from app.modules import frest
-from app.modules.token import token_generate
 
 _URL = '/auth'
 

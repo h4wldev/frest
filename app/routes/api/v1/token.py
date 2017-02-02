@@ -4,8 +4,8 @@ from flask_api import status
 from flask_restful import Resource
 
 from app import token_auth
+from app.models.user_token_model import token_load_with_auth
 from app.modules import frest
-from app.modules.token import token_load_with_auth
 
 
 _URL = '/token'

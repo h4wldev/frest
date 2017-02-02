@@ -20,7 +20,7 @@ __API__
 - `DELETE /api/v@/users/<prefix(me or user_id)>` Delete user
 
 __FEATURE__
-- You can expire token with function `app/modules/token` token_expire_all, token_expire_with_token
+- You can expire token with function `app/models/user_token_model` token_expire_all, token_expire_with_token
 
 __ETC__
 - Edit some files code convention
