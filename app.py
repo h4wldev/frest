@@ -10,6 +10,9 @@
 """
 import os
 
+from flask_script import Server, Manager
+from flask_migrate import Migrate, MigrateCommand
+
 from app import app, db, routes, handler
 from app.config import APP_DEFAULT_PORT, APP_SECRET_KEY, ENVIRONMENT
 from app.modules.auth import basic, token
@@ -22,7 +25,14 @@ if __name__ == '__main__':
 
     db.create_all()
 
+    migrate = Migrate(app, db)
+    manager = Manager(app)
+
+    manager.add_command('db', MigrateCommand)
+
     if ENVIRONMENT == 'production' or ENVIRONMENT == 'testing':
-        app.run(host='0.0.0.0', port=port, debug=False)
+        manager.add_command('runserver', Server(host='0.0.0.0', port=port, use_debugger=False))
     else:
-        app.run(host='0.0.0.0', port=port, debug=True)
+        manager.add_command('runserver', Server(host='0.0.0.0', port=port, use_debugger=True))
+
+    manager.run()
