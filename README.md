@@ -13,6 +13,11 @@ Basic restful api server including login, sign up, sign out, modify account, wri
 Just modify [`app/config`](https://github.com/h4wldev/Frest/blob/master/app/config.py) and use it.
 
 ## FEATURE
+### 1.0.2
+__API__
+- `POST /api/v@/logout` Sign out
+- `GET /api/v@/` Return environment, versions
+
 ### 1.0.1
 __API__
 - `GET /api/v@/users/<prefix(me or user_id)>` Return user information
