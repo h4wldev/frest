@@ -7,15 +7,14 @@ from app.models.user_token_model import UserTokenModel
 
 
 @token_auth.verify_token
-def verify_token(token):
+def verify_token(hashed):
     token = UserTokenModel.query\
-        .filter(UserTokenModel.token == token)
+        .filter(UserTokenModel.hashed == hashed)
 
     if token.count():
         token = token.first()
 
         if token.expired_at > datetime.datetime.now():
-            session['token'] = token.token
             return True
 
     return False

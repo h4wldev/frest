@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import hashlib
 import datetime
 
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
@@ -14,12 +15,14 @@ class UserTokenModel(db.Model):
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey('users.id', onupdate="CASCADE", ondelete="CASCADE"), nullable=False)
     token = Column(String(500), unique=True, nullable=False)
+    hashed = Column(String(100), unique=True, nullable=False)
     created_at = Column(DateTime, default=datetime.datetime.now)
     expired_at = Column(DateTime)
 
-    def __init__(self, user_id=None, token=None, created_at=None, expired_at=None):
+    def __init__(self, user_id=None, token=None, hashed=None, created_at=None, expired_at=None):
         self.user_id = user_id
         self.token = token
+        self.hashed = hashed
         self.created_at = created_at
         self.expired_at = expired_at
 
@@ -40,11 +43,13 @@ def token_generate(email=None, expires_in=TOKEN_EXPIRE_TIME):
         'scheme': TOKEN_SCHEME
     }
 
-    data['token'] = Serializer(APP_SECRET_KEY, expires_in=expires_in).dumps(data)
+    token = Serializer(APP_SECRET_KEY, expires_in=expires_in).dumps(data)
+    data['token'] = hashlib.sha384(token).hexdigest()
 
     user_token = UserTokenModel(
         user_id=user.id,
-        token=data['token'],
+        token=token,
+        hashed=data['token'],
         expired_at=expired_at
     )
 
@@ -54,8 +59,12 @@ def token_generate(email=None, expires_in=TOKEN_EXPIRE_TIME):
     return data
 
 
-def token_load(token=''):
-    data = Serializer(APP_SECRET_KEY).loads(token)
+def token_load(hashed=''):
+    user_token = UserTokenModel.query \
+        .filter(UserTokenModel.hashed == hashed)\
+        .first()
+
+    data = Serializer(APP_SECRET_KEY).loads(user_token.token)
     data['permission'] = get_user(data['user_id']).permission
 
     return data
@@ -76,9 +85,9 @@ def token_is_auth(_auth=None, user_id=0):
     return False
 
 
-def token_expire_with_token(token=''):
+def token_expire_with_token(hashed=''):
     user_token = UserTokenModel.query\
-        .filter(UserTokenModel.token == token) \
+        .filter(UserTokenModel.hashed == hashed) \
         .first()
 
     user_token.expired_at = datetime.datetime.now()
