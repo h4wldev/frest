@@ -39,7 +39,6 @@ def token_generate(email=None, expires_in=TOKEN_EXPIRE_TIME):
         'user_id': user.id,
         'created_at': created_at.isoformat(),
         'expired_at': expired_at.isoformat(),
-        'expires_in': expires_in,
         'scheme': TOKEN_SCHEME
     }
 
@@ -65,6 +64,7 @@ def token_load(hashed=''):
         .first()
 
     data = Serializer(APP_SECRET_KEY).loads(user_token.token)
+    data['expired_at'] = user_token.expired_at.isoformat()
     data['permission'] = get_user(data['user_id']).permission
 
     return data
@@ -113,3 +113,19 @@ def token_delete_all(user_id=0):
         db.session.delete(user_token)
 
     db.session.commit()
+
+
+def token_expire_extension(hashed=''):
+    user_token = UserTokenModel.query\
+        .filter(UserTokenModel.hashed == hashed) \
+        .first()
+
+    user_token.expired_at = datetime.datetime.now() + datetime.timedelta(seconds=TOKEN_EXPIRE_TIME)
+    db.session.commit()
+
+
+def token_exist(hashed=''):
+    user_token = UserTokenModel.query\
+        .filter(UserTokenModel.hashed == hashed)
+
+    return user_token.count()
