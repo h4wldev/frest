@@ -13,7 +13,7 @@ from app.models.user_model import UserModel, get_user
 from app.models.user_token_model import token_is_auth, token_load_with_auth, token_expire_all, token_delete_all
 from app.modules import frest
 from app.modules.frest.validate import user as userValidate
-from app.modules.frest.serialize import serialize_user
+from app.modules.frest.serialize.user import serialize_user
 
 _URL = '/users/<prefix>'
 

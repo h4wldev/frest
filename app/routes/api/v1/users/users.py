@@ -9,11 +9,11 @@ from werkzeug.security import generate_password_hash
 
 from app import db, token_auth
 from app.config import DEFAULT_URL
-from app.models.user_model import UserModel
+from app.models.user_model import UserModel, get_users
 from app.models.user_token_model import token_is_auth
 from app.modules import frest
 from app.modules.frest.validate import users as usersValidate
-from app.modules.frest.serialize import serialize_user
+from app.modules.frest.serialize.user import serialize_user
 
 _URL = '/users'
 
@@ -39,12 +39,9 @@ class Users(Resource):
                 'data': []
             }
 
-            users_query = UserModel.query \
-                .order_by(UserModel.id.asc() if order == 'asc' else UserModel.id.desc()) \
-                .limit(limit) \
-                .offset(page * limit)
+            users = get_users(order, page, limit)
 
-            for user in users_query:
+            for user in users:
                 _return['data'].append(serialize_user(user))
 
             return _return, status.HTTP_200_OK

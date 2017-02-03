@@ -25,7 +25,7 @@ def load_api_module(path):
 
         routes[module_name] = {
             'route': '/api/v' + str(API_VERSION) + module._URL,
-            'class': getattr(module, module_name.title())
+            'class': getattr(module, module_name.title().replace('_', ''))
         }
 
 

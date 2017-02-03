@@ -28,3 +28,17 @@ def get_user(user_id=0):
         .filter(UserModel.id == user_id).first()
 
     return user_query
+
+
+def get_users(order='desc', page=0, limit=10):
+    users = []
+
+    users_query = UserModel.query \
+        .order_by(UserModel.id.asc() if order == 'asc' else UserModel.id.desc()) \
+        .limit(limit) \
+        .offset(page * limit)
+
+    for user in users_query:
+        users.append(user)
+
+    return users

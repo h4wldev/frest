@@ -21,3 +21,18 @@ class UserLoginHistoryModel(db.Model):
         self.ip_address = ip_address
         self.agent = agent
         self.accepted = accepted
+
+
+def get_login_histories(user_id=0, order='desc', page=0, limit=10):
+    histories = []
+
+    histories_query = UserLoginHistoryModel.query \
+        .filter(UserLoginHistoryModel.user_id == user_id) \
+        .order_by(UserLoginHistoryModel.id.asc() if order == 'asc' else UserLoginHistoryModel.id.desc()) \
+        .limit(limit) \
+        .offset(page * limit)
+
+    for history in histories_query:
+        histories.append(history)
+
+    return histories
