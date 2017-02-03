@@ -15,10 +15,9 @@ class Token(Resource):
     @frest.API
     def get(self):
         _type = request.args.get('type', None)
+        hashed = request.args.get('token', None)
 
         if _type == 'extension':
-            hashed = request.args.get('token', None)
-
             if hashed and token_exist(hashed):
                 token_expire_extension(hashed)
 
