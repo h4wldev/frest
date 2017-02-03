@@ -10,7 +10,7 @@ Frest is the frame of the restful api server created with [pallets/flask](https:
 Basic restful api server including login, sign up, sign out, modify account, writing, and etc..
 
 ## Getting Started
-Just modify [`app/config`](https://github.com/h4wldev/Frest/blob/master/app/config.py) and use it.
+Just modify [`app/config`](https://github.com/h4wldev/Frest/blob/master/app/config.py) and `python app.py runserver` use it.
 
 ## FEATURE
 ### 1.0.3
