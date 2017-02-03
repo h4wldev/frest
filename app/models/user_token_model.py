@@ -19,11 +19,10 @@ class UserTokenModel(db.Model):
     created_at = Column(DateTime, default=datetime.datetime.now)
     expired_at = Column(DateTime)
 
-    def __init__(self, user_id=None, token=None, hashed=None, created_at=None, expired_at=None):
+    def __init__(self, user_id=None, token=None, hashed=None, expired_at=None):
         self.user_id = user_id
         self.token = token
         self.hashed = hashed
-        self.created_at = created_at
         self.expired_at = expired_at
 
 

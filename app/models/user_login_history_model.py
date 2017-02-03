@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import datetime
+
 from sqlalchemy import Column, Integer, String, DateTime, Boolean, ForeignKey
 
 from app import db
