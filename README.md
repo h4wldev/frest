@@ -20,7 +20,7 @@ __API__
 - `GET /api/v@/users` Get users with token and params: page(Default: 0), limit(Default: 10)
 - `POST /api/v@/users` Sign Up
 - `GET /api/v@/users/<prefix(me or user_id)>` Return user information
-- `POST /api/v@/users/<prefix(me or user_id)>` Modify user information
+- `PUT /api/v@/users/<prefix(me or user_id)>` Modify user information
 - `DELETE /api/v@/users/<prefix(me or user_id)>` Delete user
 - `GET /api/v@/token?type=extension&token=<token>` Token expire time extension 
 - `GET /api/v@/users/<prefix(me or user_id)>/login_histories` Return Login histories with token and params: page(Default: 0), limit(Default: 10)
