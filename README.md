@@ -13,41 +13,22 @@ Basic restful api server including login, sign up, sign out, modify account, wri
 Just modify [`app/config`](https://github.com/h4wldev/Frest/blob/master/app/config.py) and `python app.py runserver` use it.
 
 ## FEATURE
-### 1.0.3
 __API__
-- `GET /api/v@/users/<prefix(me or user_id)>/login_histories` Return Login history
-
-### 1.0.2
-__API__
-- `POST /api/v@/logout` Sign out
 - `GET /api/v@/` Return environment, versions
-- `GET /api/v@/token?type=extension&token=<token>` Token expire time extension 
-
-### 1.0.1
-__API__
+- `GET /api/v@/auth` Login using 'HTTP basic auth' and generate token
+- `POST /api/v@/logout` Sign out
+- `GET /api/v@/users` Get users with token and params: page(Default: 0), limit(Default: 10)
+- `POST /api/v@/users` Sign Up
 - `GET /api/v@/users/<prefix(me or user_id)>` Return user information
 - `POST /api/v@/users/<prefix(me or user_id)>` Modify user information
 - `DELETE /api/v@/users/<prefix(me or user_id)>` Delete user
-
-__FEATURE__
-- You can expire token with function `app/models/user_token_model` token_expire_all, token_expire_with_token
-
-__ETC__
-- Edit some files code convention
-- Delete Form validation. Instead, use wtform
-- Get user's permission from database when token load
-
-### 1.0.0
-__API__
-- `GET /api/v@/auth` Login using 'HTTP basic auth' and generate token
-- ~~`GET /api/v@/token` Login using 'HTTP token auth'~~
-- `GET /api/v@/users` Get users with token and params: page(Default: 0), limit(Default: 10)
-- `POST /api/v@/users` Sign Up
+- `GET /api/v@/token?type=extension&token=<token>` Token expire time extension 
+- `GET /api/v@/users/<prefix(me or user_id)>/login_histories` Return Login histories with token and params: page(Default: 0), limit(Default: 10)
 
 __FUNCTION__
-- ~~Form validation `app/modules/form_validation`~~ __Now Removed__
 - Auto route loading `app/routes`
 - Decorating return values `app/modules/frest/api`
+- You can expire token with function `app/models/user_token_model` token_expire_all, token_expire_with_token
 
 ## TODO
 - User role development 
