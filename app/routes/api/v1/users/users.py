@@ -12,6 +12,7 @@ from app.config import DEFAULT_URL
 from app.models.user_model import UserModel, get_users
 from app.models.user_token_model import token_is_auth
 from app.modules import frest
+from app.modules.frest.api.error import get_exists_error
 from app.modules.frest.validate import users as usersValidate
 from app.modules.frest.serialize.user import serialize_user
 
@@ -66,8 +67,7 @@ class Users(Resource):
                 db.session.add(user)
                 db.session.commit()
             except IntegrityError as e:
-                error = str(e).splitlines()[1].replace('DETAIL:  ', '')
-                field, value = map(lambda x: x[1:-1], re.findall(r'\([^)]+\)', error))
+                field, value = get_exists_error(e)
 
                 _return = {
                     'message': "'" + value + "' is already exists.",

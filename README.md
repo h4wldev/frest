@@ -15,7 +15,7 @@ Just modify [`app/config`](https://github.com/h4wldev/Frest/blob/master/app/conf
 ## FEATURE
 __API__
 - `GET /api/v@/` Return environment, versions
-- `GET /api/v@/auth` Login using 'HTTP basic auth' and generate token
+- `POST /api/v@/auth` Login
 - `POST /api/v@/logout` Sign out
 - `GET /api/v@/users` Get users with token and params: page(Default: 0), limit(Default: 10)
 - `POST /api/v@/users` Sign Up

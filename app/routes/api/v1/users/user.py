@@ -12,6 +12,7 @@ from app import db, token_auth
 from app.models.user_model import UserModel, get_user
 from app.models.user_token_model import token_is_auth, token_load_with_auth, token_expire_all, token_delete_all
 from app.modules import frest
+from app.modules.frest.api.error import get_exists_error
 from app.modules.frest.validate import user as userValidate
 from app.modules.frest.serialize.user import serialize_user
 
@@ -73,8 +74,7 @@ class User(Resource):
                             user.updated_at = datetime.datetime.now()
                             db.session.commit()
                         except IntegrityError as e:
-                            error = str(e).splitlines()[1].replace('DETAIL:  ', '')
-                            field, value = map(lambda x: x[1:-1], re.findall(r'\([^)]+\)', error))
+                            field, value = get_exists_error(e)
 
                             _return = {
                                 'message': "'" + value + "' is already exists.",

@@ -4,7 +4,7 @@ from flask_restful import Api
 from flask_httpauth import HTTPBasicAuth, HTTPTokenAuth
 from flask_sqlalchemy import SQLAlchemy
 
-from app.config import DATABASE, TOKEN_SCHEME
+from app.config import DATABASE_URI, TOKEN_SCHEME
 
 
 # API SERVER APPLICATION
@@ -14,14 +14,10 @@ api = Api(app)
 
 # DATABASE
 app.config['SQLALCHEMY_ECHO'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 db = SQLAlchemy(app)
-
-
-# BASIC AUTH AUTHENTICATION
-basic_auth = HTTPBasicAuth()
 
 
 # TOKEN AUTH AUTHENTICATION

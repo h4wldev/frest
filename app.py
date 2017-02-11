@@ -15,7 +15,7 @@ from flask_migrate import Migrate, MigrateCommand
 
 from app import app, db, routes, handler
 from app.config import APP_DEFAULT_PORT, APP_SECRET_KEY, ENVIRONMENT
-from app.modules.auth import basic, token
+from app.modules.auth import login, token
 
 
 if __name__ == '__main__':

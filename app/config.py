@@ -53,7 +53,7 @@ APP_VERSION = '1.0.0'
 # -----------------------------
 
 # DATABASE URL & SETTING
-DATABASE = '%(engine)s://%(user)s:%(password)s@%(host)s:%(port)s/%(database)s' % {
+DATABASE = {
     'engine': 'postgres',
     'host': 'localhost',
     'port': '5432',
@@ -61,3 +61,5 @@ DATABASE = '%(engine)s://%(user)s:%(password)s@%(host)s:%(port)s/%(database)s' %
     'password': '',
     'database': ''
 }
+
+DATABASE_URI = '%(engine)s://%(user)s:%(password)s@%(host)s:%(port)s/%(database)s' % DATABASE

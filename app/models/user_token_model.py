@@ -14,7 +14,7 @@ class UserTokenModel(db.Model):
     __tablename__ = 'user_tokens'
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey('users.id', onupdate="CASCADE", ondelete="CASCADE"), nullable=False)
-    token = Column(String(500), unique=True, nullable=False)
+    token = Column(String(500), nullable=False)
     hashed = Column(String(100), unique=True, nullable=False)
     created_at = Column(DateTime, default=datetime.datetime.now)
     expired_at = Column(DateTime)
