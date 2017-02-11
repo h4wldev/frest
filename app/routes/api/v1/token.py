@@ -26,5 +26,10 @@ class Token(Resource):
                 }
 
                 return _return, status.HTTP_200_OK
+            else:
+                _return = {
+                    'message': 'The token must be entered as required.'
+                }
+                return _return, status.HTTP_400_BAD_REQUEST
 
         return None, status.HTTP_400_BAD_REQUEST

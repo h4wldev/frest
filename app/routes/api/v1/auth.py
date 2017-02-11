@@ -20,9 +20,9 @@ class Auth(Resource):
             _return = {
                 'data': token_generate(email=email)
             }
+            return _return, status.HTTP_200_OK
         else:
             _return = {
                 'message': 'User does not exist or the password does not match.'
             }
-
-        return _return, status.HTTP_201_CREATED
+            return _return, status.HTTP_400_BAD_REQUEST
