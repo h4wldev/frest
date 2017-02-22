@@ -15,6 +15,7 @@ from app.modules import frest
 from app.modules.frest.api.error import get_exists_error
 from app.modules.frest.validate import users as usersValidate
 from app.modules.frest.serialize.user import serialize_user
+from app.utils import paging
 
 _URL = '/users'
 
@@ -29,14 +30,7 @@ class Users(Resource):
 
         if token_is_auth(request.headers['Authorization']):
             _return = {
-                'paging': {
-                    'previous': '%s%s?page=%d&limit=%d&order=%s' % (
-                        DEFAULT_URL, request.path, page if page < 1 else page - 1, limit, order
-                    ),
-                    'next': '%s%s?page=%d&limit=%d&order=%s' % (
-                        DEFAULT_URL, request.path, page + 1, limit, order
-                    )
-                },
+                'paging': paging.get_urls(),
                 'data': []
             }
 

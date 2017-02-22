@@ -11,6 +11,7 @@ from app.models.user_login_history_model import get_login_histories
 from app.models.user_token_model import token_is_auth, token_load_with_auth
 from app.modules import frest
 from app.modules.frest.serialize.user import serialize_login_history
+from app.utils import paging
 
 _URL = '/users/<prefix>/login_histories'
 
@@ -31,14 +32,7 @@ class UserLoginHistories(Resource):
 
             if token_is_auth(request.headers['Authorization'], user_id):
                 _return = {
-                    'paging': {
-                        'previous': '%s%s?page=%d&limit=%d&order=%s' % (
-                            DEFAULT_URL, request.path, page if page < 1 else page - 1, limit, order
-                        ),
-                        'next': '%s%s?page=%d&limit=%d&order=%s' % (
-                            DEFAULT_URL, request.path, page + 1, limit, order
-                        )
-                    },
+                    'paging': paging.get_urls(),
                     'data': []
                 }
 
