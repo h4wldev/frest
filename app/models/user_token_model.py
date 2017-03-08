@@ -2,6 +2,7 @@
 import hashlib
 import datetime
 
+from flask import request
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 
@@ -16,6 +17,7 @@ class UserTokenModel(db.Model):
     user_id = Column(Integer, ForeignKey('users.id', onupdate="CASCADE", ondelete="CASCADE"), nullable=False)
     token = Column(String(500), nullable=False)
     hashed = Column(String(100), unique=True, nullable=False)
+    ip_address = Column(String(45))
     created_at = Column(DateTime, default=datetime.datetime.now)
     expired_at = Column(DateTime)
 
@@ -23,6 +25,7 @@ class UserTokenModel(db.Model):
         self.user_id = user_id
         self.token = token
         self.hashed = hashed
+        self.ip_address = request.remote_addr
         self.expired_at = expired_at
 
 
@@ -86,7 +89,7 @@ def token_is_auth(_auth=None, user_id=0):
 
 def token_expire_with_token(hashed=''):
     user_token = UserTokenModel.query\
-        .filter(UserTokenModel.hashed == hashed) \
+        .filter(UserTokenModel.hashed == hashed, UserTokenModel.ip_address == request.remote_addr) \
         .first()
 
     user_token.expired_at = datetime.datetime.now()
@@ -116,7 +119,7 @@ def token_delete_all(user_id=0):
 
 def token_expire_extension(hashed=''):
     user_token = UserTokenModel.query\
-        .filter(UserTokenModel.hashed == hashed) \
+        .filter(UserTokenModel.hashed == hashed, UserTokenModel.ip_address == request.remote_addr) \
         .first()
 
     user_token.expired_at = datetime.datetime.now() + datetime.timedelta(seconds=TOKEN_EXPIRE_TIME)
@@ -125,6 +128,6 @@ def token_expire_extension(hashed=''):
 
 def token_exist(hashed=''):
     user_token = UserTokenModel.query\
-        .filter(UserTokenModel.hashed == hashed)
+        .filter(UserTokenModel.hashed == hashed, UserTokenModel.ip_address == request.remote_addr)
 
     return user_token.count()

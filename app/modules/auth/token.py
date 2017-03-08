@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import datetime
-from flask import jsonify, session
+from flask import jsonify, request
 
 from app import token_auth
 from app.models.user_token_model import UserTokenModel
@@ -9,7 +9,7 @@ from app.models.user_token_model import UserTokenModel
 @token_auth.verify_token
 def verify_token(hashed):
     token = UserTokenModel.query\
-        .filter(UserTokenModel.hashed == hashed)
+        .filter(UserTokenModel.hashed == hashed, UserTokenModel.ip_address == request.remote_addr)
 
     if token.count():
         token = token.first()
