@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import Flask
+from flask_cors import CORS, cross_origin
 from flask_restful import Api
 from flask_httpauth import HTTPBasicAuth, HTTPTokenAuth
 from flask_sqlalchemy import SQLAlchemy
@@ -9,6 +10,7 @@ from app.config import DATABASE_URI, TOKEN_SCHEME
 
 # API SERVER APPLICATION
 app = Flask(__name__)
+CORS(app)
 api = Api(app)
 
 
