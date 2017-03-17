@@ -30,6 +30,19 @@ __FUNCTION__
 - Decorating return values `app/modules/frest/api`
 - You can expire token with function `app/models/user_token_model` token_expire_all, token_expire_with_token
 
+## APIDOC
+
+How to see apidoc
+~~~
+//install
+npm install apidoc -g
+
+//run
+apidoc -i ./ -o ./apidoc
+
+//in directory ./apidoc, apidoc will be generated
+~~~
+
 ## TODO
 - User role development 
 

@@ -11,6 +11,19 @@ _URL = '/logout'
 
 
 class Logout(Resource):
+    """
+       @api {post} /logout Logout
+       @apiName Logout
+       @apiGroup Auth
+
+       @apiHeader {String} Authorization Access token.
+       @apiHeaderExample {json} Header-Example:
+         {
+           "Authorization": "304924"
+         }
+
+       """
+
     @frest.API
     @token_auth.login_required
     def post(self):

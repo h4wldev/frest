@@ -21,6 +21,26 @@ _URL = '/users'
 
 
 class Users(Resource):
+
+    """
+        @api {get} /users Get users information
+        @apiName Users Info
+        @apiGroup Users
+
+        @apiHeader {String} Authorization Access token.
+        @apiHeaderExample {json} Header-Example:
+          {
+            "Authorization": "304924"
+          }
+
+        @apiParam {int} page Paging number.
+        @apiParam {int} limit Result limit.
+
+        @apiSuccess (200) {String} data Users data.
+        @apiError (401) UnAuthorized You don't have permission.
+
+        """
+
     @frest.API
     @token_auth.login_required
     def get(self):

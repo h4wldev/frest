@@ -10,6 +10,18 @@ _URL = '/'
 
 
 class Index(Resource):
+
+    """
+    @api {get} / Get API Information
+    @apiName API Info
+    @apiGroup Info
+
+    @apiSuccess (200) {String} environment Environment
+    @apiSuccess (200) {String} api API_VERSION
+    @apiSuccess (200) {String} app APP_VERSION
+
+    """
+
     @frest.API
     def get(self):
         _return = {
