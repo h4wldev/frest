@@ -11,6 +11,19 @@ _URL = '/auth'
 
 
 class Auth(Resource):
+
+    """
+    @api {post} /auth Authenticate with user information
+    @apiName UserAuth
+    @apiGroup Auth
+
+    @apiParam {String} email Users' email.
+    @apiParam {String} password Users' password.
+
+    @apiSuccess (200) {String} data Generated JWT token.
+    @apiError (400) AuthFail User does not exist or the password does not match
+    """
+
     @frest.API
     def post(self):
         email = request.form.get('email', None)
