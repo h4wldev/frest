@@ -20,6 +20,24 @@ _URL = '/users/<prefix>'
 
 
 class User(Resource):
+    """
+    @api {get} /users/:prefix Get particular user's info
+    @apiName User Info
+    @apiGroup Users
+
+    @apiHeader {String} Authorization Access token.
+    @apiHeaderExample {json} Header-Example:
+        {
+            "Authorization": "304924"
+        }
+
+    @apiParam {String} prefix user's prefix
+
+    @apiSuccess (200) {String} data Users data.
+    @apiError (401) UnAuthorized You don't have permission.
+    @apiError (400) ValueError Prefix can only be me or number
+    """
+
     @frest.API
     @token_auth.login_required
     def get(self, prefix):
@@ -37,6 +55,27 @@ class User(Resource):
                 return "You don't have permission.", status.HTTP_401_UNAUTHORIZED
         except ValueError:
             return "Prefix can only be me or a number.", status.HTTP_400_BAD_REQUEST
+
+    """
+    @api {put} /users/:prefix Update user info
+    @apiName Update user info
+    @apiGroup Users
+    @apiPermission Admin
+
+    @apiHeader {String} Authorization Access token.
+    @apiHeaderExample {json} Header-Example:
+        {
+            "Authorization": "304924"
+        }
+
+    @apiParam {String} prefix user's prefix
+
+    @apiSuccess (200) None
+
+    @apiError (400) BadRequest Invalid input - Prefix can only be me or a number.
+    @apiError (401) UnAuthorized You don't have permission - Should be admin.
+    @apiError (404) NotFound User not found.
+    """
 
     @frest.API
     @token_auth.login_required
@@ -103,6 +142,26 @@ class User(Resource):
 
         except ValueError:
             return "Prefix can only be me or a number.", status.HTTP_400_BAD_REQUEST
+
+    """
+    @api {delete} /users/:prefix Delete user
+    @apiName User Delete
+    @apiGroup Users
+
+    @apiHeader {String} Authorization Access token.
+    @apiHeaderExample {json} Header-Example:
+        {
+          "Authorization": "304924"
+        }
+
+    @apiParam {String} prefix user's prefix
+
+    @apiSuccess (200) None
+
+    @apiError (404) NotFound User not found.
+    @apiError (401) UnAuthorized You don't have permission.
+    @apiError (400) ValueError Prefix can only be me or number
+    """
 
     @frest.API
     @token_auth.login_required
