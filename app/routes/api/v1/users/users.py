@@ -63,6 +63,36 @@ class Users(Resource):
 
         return "You don't have permission.", status.HTTP_401_UNAUTHORIZED
 
+    """
+       @api {post} /users Users SignUp
+       @apiName SignUp
+       @apiGroup Users
+
+       @apiParam {String} email User's email.
+       @apiParam {String} username User's username.
+       @apiParam {String} password User's password.
+
+       @apiSuccess (201) {String} data Users data.
+
+       @apiError (400) BadRequests BadRequest with error message
+       @apiErrorExample {json} Error-BadRequest-Already exists:
+           HTTP /1.1 400 BadRequest
+           {
+               'message': "'" + value + "' is already exists.",
+                   'field': {
+                       'label': getattr(form, field).label.text,
+                       'name': field
+                   }
+           }
+
+       @apiErrorExample {json} Error-BadRequest-Invalid data format:
+           HTTP /1.1 400 BadRequest
+           {
+               'message': error,
+               'field' : invalid field
+           }
+       """
+
     @frest.API
     def post(self):
         email = request.form.get('email', None)

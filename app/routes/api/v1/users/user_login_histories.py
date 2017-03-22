@@ -17,6 +17,19 @@ _URL = '/users/<prefix>/login_histories'
 
 
 class UserLoginHistories(Resource):
+    """
+    @api {get} /users/:prefix/login_histories
+    @apiName GetLoginHistories
+    @apiGroup Users
+
+    @apiParam {String} prefix user's prefix
+    @apiParam {int} page Paging number.
+    @apiParam {int} limit Result limit.
+
+    @apiError (401) UnAuthorized You don't have permission.
+    @apiError (400) BadRequest Invalid input - Prefix can only be me or a number.
+    """
+
     @frest.API
     @token_auth.login_required
     def get(self, prefix):
