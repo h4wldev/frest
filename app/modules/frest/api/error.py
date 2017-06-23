@@ -11,7 +11,7 @@ def get_exists_error(e):
         error = str(e).splitlines()[1].replace('DETAIL:  ', '')
         field, value = map(lambda x: x[1:-1], re.findall(r'\([^)]+\)', error))
     elif DATABASE['engine'] == 'mysql':
-        error = map(lambda s: s[1:-1], re.findall(r'\'[^\']+\'', str(e)))
+        error = [f[1:-1] for f in re.findall(r'\'[^\']+\'', str(e))]
         value, field = error[0], error[1]
 
     return field, value
