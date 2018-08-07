@@ -1,17 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="60d3e562-364a-4188-8cb6-aa9b3ab4c084" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apidoc.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes/api/v1/auth.py" afterPath="$PROJECT_DIR$/app/routes/api/v1/auth.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes/api/v1/index.py" afterPath="$PROJECT_DIR$/app/routes/api/v1/index.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes/api/v1/logout.py" afterPath="$PROJECT_DIR$/app/routes/api/v1/logout.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes/api/v1/users/users.py" afterPath="$PROJECT_DIR$/app/routes/api/v1/users/users.py" />
+    <list default="true" id="875643ca-869d-484e-9174-78d32df94087" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change beforePath="$PROJECT_DIR$/doc/api_data.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/api_data.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/api_project.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/api_project.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/css/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/fonts/glyphicons-halflings-regular.eot" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/fonts/glyphicons-halflings-regular.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/fonts/glyphicons-halflings-regular.woff" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/img/favicon.ico" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/index.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/locales/ca.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/locales/de.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/locales/es.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/locales/fr.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/locales/it.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/locales/locale.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/locales/nl.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/locales/pl.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/locales/pt_br.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/locales/ro.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/locales/ru.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/locales/zh.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/locales/zh_cn.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/main.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/utils/handlebars_helper.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/utils/send_sample_request.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/bootstrap.min.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/bootstrap.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/diff_match_patch.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/handlebars.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/jquery.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/list.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/lodash.custom.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/path-to-regexp/LICENSE" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/path-to-regexp/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/polyfill.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-Splus.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-aea.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-agc.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-apollo.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-basic.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-cbm.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-cl.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-clj.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-css.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-dart.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-el.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-erl.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-erlang.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-fs.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-go.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-hs.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-lasso.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-lassoscript.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-latex.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-lgt.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-lisp.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-ll.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-llvm.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-logtalk.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-ls.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-lsp.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-lua.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-matlab.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-ml.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-mumps.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-n.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-nemerle.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-pascal.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-proto.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-r.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-rd.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-rkt.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-rust.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-s.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-scala.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-scm.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-sql.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-ss.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-swift.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-tcl.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-tex.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-vb.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-vbs.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-vhd.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-vhdl.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-wiki.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-xq.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-xquery.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-yaml.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/lang-yml.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/prettify.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/prettify.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/prettify/run_prettify.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/require.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/semver.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/vendor/webfontloader.js" afterPath="" />
     </list>
-    <ignored path="Frest.iws" />
-    <ignored path=".idea/workspace.xml" />
-    <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,73 +113,28 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CreatePatchCommitExecutor">
-    <option name="PATCH_PATH" value="" />
-  </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
-  <component name="FavoritesManager">
-    <favorites_list name="Frest" />
-  </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="auth.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routes/api/v1/auth.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routes/api/v1/index.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="logout.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routes/api/v1/logout.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="users.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routes/api/v1/users/users.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-578">
-              <caret line="41" column="11" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="881">
-                <caret line="42" column="49" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
+              <first_editor relative-caret-position="385">
+                <caret line="36" column="22" lean-forward="true" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
                 <folding />
               </first_editor>
-              <second_editor />
+              <second_editor>
+                <js_state />
+              </second_editor>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apidoc/index.html">
+      <file leaf-file-name="apidoc.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apidoc.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -99,11 +148,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/routes/api/v1/auth.py" />
-        <option value="$PROJECT_DIR$/app/routes/api/v1/index.py" />
-        <option value="$PROJECT_DIR$/app/routes/api/v1/logout.py" />
-        <option value="$PROJECT_DIR$/app/routes/api/v1/users/users.py" />
-        <option value="$PROJECT_DIR$/apidoc.json" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
@@ -114,20 +158,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="962" />
-    <option name="width" value="958" />
-    <option name="height" value="1200" />
-  </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
-    <OptionsSetting value="true" id="Add" />
-    <OptionsSetting value="true" id="Remove" />
-    <OptionsSetting value="true" id="Checkout" />
-    <OptionsSetting value="true" id="Update" />
-    <OptionsSetting value="true" id="Status" />
-    <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
-    <ConfirmationsSetting value="0" id="Remove" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="2560" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -145,269 +178,45 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Frest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Frest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Frest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Frest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Frest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apidoc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
+          <expand>
+            <path>
+              <item name="Frest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Frest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Frest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Frest" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Frest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Frest" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="FullScreen" value="true" />
-    <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="BashConfigurationType" factoryName="Bash">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="INTERPRETER_PATH" value="/bin/bash" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Frest" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="TARGET" value="" />
-      <option name="SETTINGS_FILE" value="" />
-      <option name="CUSTOM_SETTINGS" value="false" />
-      <option name="USE_OPTIONS" value="false" />
-      <option name="OPTIONS" value="" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Frest" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="ADDITIONAL_ARGS" value="" />
-      <method />
-    </configuration>
-    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Frest" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="ADDITIONAL_ARGS" value="" />
-      <method />
-    </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Frest" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <module name="Frest" />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run-script" />
-      <scripts />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Attests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Frest" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Doctests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Frest" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Nosetests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Frest" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Unittests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Frest" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="py.test">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Frest" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="testToRun" value="" />
-      <option name="keywords" value="" />
-      <option name="params" value="" />
-      <option name="USE_PARAM" value="false" />
-      <option name="USE_KEYWORD" value="false" />
-      <method />
-    </configuration>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -417,27 +226,28 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="60d3e562-364a-4188-8cb6-aa9b3ab4c084" name="Default" comment="" />
-      <created>1489726765233</created>
+      <changelist id="875643ca-869d-484e-9174-78d32df94087" name="Default" comment="" />
+      <created>1533568607966</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1489726765233</updated>
+      <updated>1533568607966</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="962" y="0" width="958" height="1200" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="0" width="2560" height="1080" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23034935" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3291262" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32920355" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -449,13 +259,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
-  <component name="Vcs.Log.UiProperties">
-    <option name="RECENTLY_FILTERED_USER_GROUPS">
-      <collection />
-    </option>
-    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-      <collection />
-    </option>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -465,62 +270,24 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/routes/api/v1/auth.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/api/v1/index.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/api/v1/logout.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/api/v1/users/users.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-578">
-          <caret line="41" column="11" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apidoc.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="881">
-            <caret line="42" column="49" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
+          <first_editor relative-caret-position="385">
+            <caret line="36" column="22" lean-forward="true" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
             <folding />
           </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apidoc/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <second_editor>
+            <js_state />
+          </second_editor>
         </state>
       </provider>
     </entry>
