@@ -32,8 +32,6 @@ __FUNCTION__
 
 ## APIDOC
 
-- `GET /static/doc/index.html` View API DOC
-
 How to generate apidoc
 ~~~
 //install
@@ -42,7 +40,7 @@ npm install apidoc -g
 //run
 apidoc -i ./ -o ./app/static/doc
 
-//in directory ./apidoc, apidoc will be generated
+//in directory ./app/static/doc, apidoc will be generated
 ~~~
 
 ## TODO
